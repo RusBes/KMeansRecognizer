@@ -1,0 +1,11 @@
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\bin\Debug\KursovaKSer.exe.config
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\bin\Debug\KursovaKSer.exe
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\bin\Debug\KursovaKSer.pdb
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\bin\Debug\Cyotek.Windows.Forms.ImageBox.dll
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\bin\Debug\Cyotek.Windows.Forms.ImageBox.xml
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\obj\Debug\KursovaKSer.Form1.resources
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\obj\Debug\KursovaKSer.Properties.Resources.resources
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\obj\Debug\KursovaKSer.csproj.GenerateResource.Cache
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\obj\Debug\KursovaKSer.exe
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\obj\Debug\KursovaKSer.pdb
+E:\University\5 KURS\Neural Networks\KursovaKSer\KursovaKSer\obj\Debug\KursovaKSer.csprojResolveAssemblyReference.cache
