@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace KursovaKSer
 {
 	public static class ImageHelper
@@ -94,9 +90,7 @@ namespace KursovaKSer
 				return new Bitmap(fs);
 			}
 		}
-
-
-
+		
 		public static byte[,] Monochromize(byte[,,] input, int limit = 126)
 		{
 			var res = new byte[input.GetLength(1), input.GetLength(2)];

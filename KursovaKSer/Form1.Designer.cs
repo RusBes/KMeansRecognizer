@@ -31,7 +31,7 @@
 			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
 			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
 			this.butTeachSingle = new System.Windows.Forms.Button();
-			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.lbResults = new System.Windows.Forms.ListBox();
 			this.butRecognize = new System.Windows.Forms.Button();
 			this.chartTeaching = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.nudClusterCount = new System.Windows.Forms.NumericUpDown();
@@ -53,14 +53,14 @@
 			this.butTeachSingle.UseVisualStyleBackColor = true;
 			this.butTeachSingle.Click += new System.EventHandler(this.butTeachSingle_Click);
 			// 
-			// listBox1
+			// lbResults
 			// 
-			this.listBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.listBox1.FormattingEnabled = true;
-			this.listBox1.Location = new System.Drawing.Point(0, 211);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(598, 121);
-			this.listBox1.TabIndex = 5;
+			this.lbResults.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.lbResults.FormattingEnabled = true;
+			this.lbResults.Location = new System.Drawing.Point(0, 211);
+			this.lbResults.Name = "lbResults";
+			this.lbResults.Size = new System.Drawing.Size(598, 121);
+			this.lbResults.TabIndex = 5;
 			// 
 			// butRecognize
 			// 
@@ -98,7 +98,7 @@
             0,
             0,
             0});
-			this.nudClusterCount.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+			this.nudClusterCount.ValueChanged += new System.EventHandler(this.nudClusterCount_ValueChanged);
 			// 
 			// label1
 			// 
@@ -138,7 +138,7 @@
 			this.Controls.Add(this.nudClusterCount);
 			this.Controls.Add(this.chartRecognizing);
 			this.Controls.Add(this.chartTeaching);
-			this.Controls.Add(this.listBox1);
+			this.Controls.Add(this.lbResults);
 			this.Controls.Add(this.butRecognize);
 			this.Controls.Add(this.butFullTeaching);
 			this.Controls.Add(this.butTeachSingle);
@@ -155,7 +155,7 @@
 		#endregion
 
 		private System.Windows.Forms.Button butTeachSingle;
-		private System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.ListBox lbResults;
 		private System.Windows.Forms.Button butRecognize;
 		private System.Windows.Forms.DataVisualization.Charting.Chart chartTeaching;
 		private System.Windows.Forms.NumericUpDown nudClusterCount;

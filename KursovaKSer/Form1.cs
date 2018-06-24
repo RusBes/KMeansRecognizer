@@ -1,13 +1,10 @@
 ﻿using Cyotek.Windows.Forms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -25,6 +22,8 @@ namespace KursovaKSer
 		public Form1()
 		{
 			InitializeComponent();
+
+			updateClusterCountFromForm();
 
 			seriesInputDataTeaching = new Series("InputData");
 			seriesInputDataTeaching.ChartType = SeriesChartType.Point;
@@ -63,7 +62,6 @@ namespace KursovaKSer
 
 		private void butTeachSingle_Click(object sender, EventArgs e)
 		{
-			//var bmpNum1 = ImageHelper.LoadBitmap(@"E:\University\5 KURS\Neural Network Data\Numbers\11.png");
 			var ofd = new OpenFileDialog();
 			if (ofd.ShowDialog() != DialogResult.OK)
 			{
@@ -73,7 +71,8 @@ namespace KursovaKSer
 			var bmp = ImageHelper.LoadBitmap(ofd.FileName);
 			var inputImagePoints = ImageHelper.BitmapToPointFormat(bmp);
 			var realNum = getRealNumFromFileName(ofd.FileName);
-			var outputCenters = _model.Teach(bmp);
+			_model.Teach(bmp, realNum);
+			var outputCenters = _model.Centers[realNum];
 			_model.Centers[realNum] = outputCenters;
 
 			ShowPoints(inputImagePoints, seriesInputDataTeaching);
@@ -110,27 +109,40 @@ namespace KursovaKSer
 				MessageBox.Show("Спочатку потрібно навчити систему розпізнавання!");
 				return;
 			}
-			var recognizedNum = probabilities.First(x => x.Value == probabilities.Values.Min()).Key;
-			//listBox1.Items.Clear();
+			var recognizedNum = probabilities.First(x => x.Value == probabilities.Values.Max()).Key;
+
+			showResults(probabilities, recognizedNum, image);
+		}
+
+		private void showResults(Dictionary<int, double> probabilities, int recognizedNum, Bitmap image)
+		{
 			foreach (var probability in probabilities)
 			{
-				listBox1.Items.Add($"Вірогідність\t{probability.Key}\t=\t{Math.Round(probability.Value, 2)}%");
+				lbResults.Items.Add($"Вірогідність\t{probability.Key}\t=\t{Math.Round(probability.Value, 2)}%");
 			}
-			listBox1.Items.Add($"Скоріше за все на рисунку зображена картинка цифри\t{recognizedNum}");
-			listBox1.Items.Add("");
+			lbResults.Items.Add($"Скоріше за все на рисунку зображена картинка цифри\t{recognizedNum}");
+			lbResults.Items.Add("");
 
 			ShowPoints(ImageHelper.BitmapToPointFormat(image), seriesInputDataRecongnizing);
 			ShowPoints(_model.Centers[recognizedNum], seriesIdealCentersRecongnizing);
-			ShowPoints(_model.LastRecognized, seriesRealCentersRecongnizing);
+			ShowPoints(_model.LastRecognizedCenters, seriesRealCentersRecongnizing);
 		}
 
-		private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+		private void nudClusterCount_ValueChanged(object sender, EventArgs e)
+		{
+			updateClusterCountFromForm();
+		}
+
+		private void updateClusterCountFromForm()
 		{
 			_model.ClusterCount = Convert.ToInt32(nudClusterCount.Value);
 		}
 	}
 	
 
+	/// <summary>
+	/// To be able drag control from toolbox
+	/// </summary>
 	public class MyImageBox : ImageBox
 	{
 
